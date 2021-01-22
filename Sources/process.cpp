@@ -8,8 +8,7 @@
 
 //Check if _popen / _pclose or popen/pclose shall be used
 //Is windows the compiling os ?
-#if __has_include(<unistd.h>)
-#else
+#ifndef __linux__
 FILE* __cdecl popen(const char *_Command, const char *_Mode)
 {
     return _popen(_Command, _Mode);
